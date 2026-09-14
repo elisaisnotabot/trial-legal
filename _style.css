@@ -1,0 +1,141 @@
+/* Shared styling for the two legal pages.
+   Plain, readable, and theme-aware. A policy nobody can read fails at the only
+   thing it exists to do, so the type is sized for reading rather than for
+   getting through review. */
+
+:root {
+    color-scheme: light dark;
+
+    --ink: #1A1E1A;
+    --ink-soft: #4A5248;
+    --ink-faint: #6E7A6C;
+    --ground: #FBFBF7;
+    --panel: #FFFFFF;
+    --rule: rgba(36, 40, 35, 0.12);
+    --accent: #455B16;
+    --accent-wash: #E7EED1;
+    --warn-wash: #F3E3D9;
+    --warn-ink: #8C4A2B;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ink: #EFF3E9;
+        --ink-soft: #B8C2B4;
+        --ink-faint: #8A947F;
+        --ground: #0F120E;
+        --panel: #171B15;
+        --rule: rgba(239, 243, 233, 0.14);
+        --accent: #C6DD62;
+        --accent-wash: #293218;
+        --warn-wash: #32200F;
+        --warn-ink: #E5A57E;
+    }
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+
+.wrap {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+}
+
+header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.mark {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.75rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.1;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+.meta {
+    color: var(--ink-faint);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin: 2.75rem 0 0.75rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: 1.05rem;
+    margin: 1.75rem 0 0.5rem;
+}
+
+p, li { color: var(--ink-soft); }
+li { margin-bottom: 0.4rem; }
+strong { color: var(--ink); font-weight: 650; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.summary {
+    background: var(--accent-wash);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+}
+.summary p:last-child { margin-bottom: 0; }
+.summary h2 { margin-top: 0; font-size: 1.05rem; }
+
+.callout {
+    background: var(--warn-wash);
+    border-radius: 14px;
+    padding: 1.1rem 1.4rem;
+    margin: 1.75rem 0;
+}
+.callout strong { color: var(--warn-ink); }
+.callout p:last-child { margin-bottom: 0; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.94rem;
+}
+th, td {
+    text-align: left;
+    padding: 0.65rem 0.75rem 0.65rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink-soft);
+}
+th { color: var(--ink); font-weight: 650; }
+.scroll { overflow-x: auto; }
+
+footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-faint);
+    font-size: 0.9rem;
+}
+footer a { color: var(--ink-faint); }
